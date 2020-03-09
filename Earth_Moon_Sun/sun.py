@@ -10,8 +10,8 @@ class SunObject():
         sunHeight = height/(sunRatio)
         sunWidth = width/(sunRatio*windowXYRatio)
         self.windowBound(sunWidth, sunHeight)
-        ellipse(self.mouse_X, self.mouse_Y, sunWidth, sunHeight) # emplacement soleil
         fill(255, 255, 0)
+        ellipse(self.mouse_X, self.mouse_Y, sunWidth, sunHeight) # emplacement soleil
         return
     
     def windowBound(self, sunWidth, sunHeight):
