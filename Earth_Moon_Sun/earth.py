@@ -3,7 +3,7 @@ class EarthObject():
         return
 
     def earthDraw(self):
-        surface = 15
-        ellipse(width/2, height/2, width/(surface*1.777), height/surface)
+        surface_terre = 15
+        ellipse(width/2, height/2, width/(surface_terre*1.777), height/surface_terre)
         fill(53, 210, 249)
         return
