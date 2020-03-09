@@ -1,8 +1,11 @@
-
+from earth import EarthObject
 
 def setup():
     fullScreen()
     
     
 def draw():
-    background(244, 0, 0)
+    background(0)
+    terre = EarthObject()
+    terre.earthDraw()
+    
