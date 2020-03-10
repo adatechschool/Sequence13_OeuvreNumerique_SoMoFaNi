@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+ #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import math
@@ -52,24 +52,24 @@ class Shadows(SunObject):
         line(self.rayCoordTable[0], self.lowerRay, self.targetX, self.targetY)
 
     def calcAngleToMoon(self):
-        angleX = abs(self.rayCoordTable[0] - self.targetX)
-        angleY = abs(self.rayCoordTable[1] - self.targetY)
-        distanceToMoon = sqrt(angleX**2 + angleY**2)
-        print(angleX, angleY)
-        # line(self.targetX, self.targetY, angleX, self.targetY)
-        # line(self.targetX, self.targetY, self.targetX, angleY)
+        # line(self.rayCoordTable[0], self.rayCoordTable[1], angleX, self.rayCoordTable[1])
+        # line(self.rayCoordTable[0], self.rayCoordTable[1], self.rayCoordTable[0], angleY)
+        #print(self.targetX, self.targetY, self.rayCoordTable[0], self.rayCoordTable[1])
+
+        # print(distanceToMoon)
         try:
-            sinAngleToMoon = float(angleX)/float(distanceToMoon)
+            angleX = abs(self.rayCoordTable[0] - self.targetX)
+            angleY = abs(self.rayCoordTable[1] - self.targetY)
+            distanceToMoon = sqrt(angleX**2 + angleY**2)
+            # print(angleX, angleY)
+            sinAngleToMoon = sin(float(angleX)/float(angleY))
+            cosAngleToMoon = sin(float(angleX)/float(angleY))
+            print(sinAngleToMoon, cosAngleToMoon)
+            pointXSunTest = distanceToMoon*sinAngleToMoon + self.targetX
+            pointYSunTest = distanceToMoon*cosAngleToMoon + self.targetY
+            print(pointXSunTest, pointYSunTest)
+            line(pointXSunTest, pointYSunTest, self.rayCoordTable[0], self.rayCoordTable[1])
+            # line(self.targetX, self.targetY , pointXSunTest, pointYSunTest)
         except:
-            sinAngleToMoon = 0
-        try:
-            cosAngleToMoon = float(angleY)/float(distanceToMoon)
-        except:
-            cosAngleToMoon = 0
-        # print(sinAngleToMoon, cosAngleToMoon)
-        pointXSunTest = distanceToMoon*sinAngleToMoon + self.targetX
-        pointYSunTest = distanceToMoon*cosAngleToMoon + self.targetY
-        print(pointXSunTest, pointYSunTest)
-        line(pointXSunTest, pointYSunTest, self.rayCoordTable[0], self.rayCoordTable[1])
-        # line(self.targetX, self.targetY , pointXSunTest, pointYSunTest)
+            pass
         return
