@@ -1,8 +1,13 @@
-
+from shadows import Shadows, SunObject
 
 def setup():
     fullScreen()
     
     
 def draw():
-    background(244, 0, 0)
+    shad = Shadows()
+    sun = SunObject()
+    background(255)
+    sun.drawSun()
+    shad.rays()
+    shad.calcAngleToMoon()

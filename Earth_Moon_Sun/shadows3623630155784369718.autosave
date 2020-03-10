@@ -1,0 +1,46 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+class SunObject(object):
+    def __init__(self):
+        self.mouse_X = mouseX
+        self.mouse_Y = mouseY
+        sunRatio = 5 # la relation taille fenetre et taille soleil
+        windowXYRatio = float(width)/float(height) # relation largeur fenetre hauteur fenetre
+        self.sunHeight = height/(sunRatio)
+        self.sunWidth = width/(sunRatio*windowXYRatio)
+        return
+
+    def drawSun(self):
+
+        self.windowBound()
+        fill(255, 255, 0)
+        ellipse(self.mouse_X, self.mouse_Y, self.sunWidth, self.sunHeight) # emplacement soleil
+        return
+
+    def windowBound(self):
+        if (self.mouse_X <= self.sunWidth/2):
+            self.mouse_X = self.sunWidth/2
+        elif (self.mouse_X >= width-self.sunWidth/2):
+            self.mouse_X = width-self.sunWidth/2
+        if (self.mouse_Y <= self.sunHeight/2):
+            self.mouse_Y = self.sunHeight/2
+        elif (self.mouse_Y >= height-self.sunHeight/2):
+            self.mouse_Y = height-self.sunHeight/2
+        return
+
+    def passSunCoords(self):
+        self.sun_up_line_X = self.mouse_X
+        self.sun_up_line_Y = self.mouse_Y - self.sunWidth/2
+        return sun_up_line_X, sun_up_line_Y
+
+
+class Shadows(SunObject):
+    def __init__(self):
+        super(Shadows, self).__init__()
+        return
+
+    def rays(self):
+        print(self.sunHeight)
+        # super(Shadows, self).passSunCoords()
+        # line(sun_up_line_X, sun_up_line_Y, 500, 500)
