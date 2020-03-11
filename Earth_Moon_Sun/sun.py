@@ -7,11 +7,11 @@ class SunObject():
     def drawSun(self):
         sunRatio = 5 # la relation taille fenetre et taille soleil
         windowXYRatio = float(width)/float(height) # relation largeur fenetre hauteur fenetre
-        sunHeight = height/(sunRatio)
-        sunWidth = width/(sunRatio*windowXYRatio)
-        self.windowBound(sunWidth, sunHeight)
+        self.sunHeight = height/(sunRatio)
+        self.sunWidth = width/(sunRatio*windowXYRatio)
+        self.windowBound(self.sunWidth, self.sunHeight)
         fill(255, 255, 0)
-        ellipse(self.mouse_X, self.mouse_Y, sunWidth, sunHeight) # emplacement soleil
+        ellipse(self.mouse_X, self.mouse_Y, self.sunWidth, self.sunHeight) # emplacement soleil
         return
     
     def windowBound(self, sunWidth, sunHeight):
